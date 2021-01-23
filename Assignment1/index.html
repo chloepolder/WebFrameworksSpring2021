@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <script src="dist/index.js" defer></script>
+        <style>
+        *{
+            font-family: "Monaco", monospace;
+        }
+        #userName{
+            font-weight: bold;
+        }
+        .starRating input[type="radio"] {
+            display: none;
+        }
+        .starRating{
+            display: inline-block;
+            padding: 10px;
+            direction: rtl;
+        }
+        .starRating input[type=radio]:checked ~ label
+        {
+            color: gold;
+        }
+        </style>
+    </head>
+    <body>
+        <h2><img src="images/gameboy.jpg"  alt="Game Boy" width="125" height="150"/>Nintendo Game Boy</h2>
+        <h3>Review Average: <span id="average"></span></h3>
+        <h3>About the Product</h3>
+        <p>The Game Boy is a Nintendo manufactured portable handheld console released initially in 1989. Features include a 2.6" 4-shade LCD, stereo sound through headphones, and interchangeable cartridges. It uses 4 AA batteries, but could also be used with an AC Adapter to power the system from a wall socket. </p><hr>
+
+        <h3>Write a Review</h3>
+        <label>Name: </label>
+        <input type="text" id="name"/><br>
+        <label>Rating: </label>    
+        <div class="starRating">
+            <input type="radio" name="rating" id="rating5" value="5"/><label for="rating5">★</label>
+            <input type="radio" name="rating" id="rating4" value="4"/><label for="rating4">★</label>
+            <input type="radio" name="rating" id="rating3" value="3"/><label for="rating3">★</label>
+            <input type="radio" name="rating" id="rating2" value="2"/><label for="rating2">★</label>
+            <input type="radio" name="rating" id="rating1" value="1"/><label for="rating1">★</label>
+        </div> 
+        <br>
+        <label>Review Comment: </label>
+        <input type="text" id="review"/><br>
+        <button id="submit" >Submit Review</button><br><br><hr>
+        
+        <h3>Reviews</h3>
+        <template id="reviewTemplate"><hr>
+            <span id="userName"></span><br>
+            <label for="userRating">Rating: </label><span id="userRating"></span><br>
+            <span id="userReview"></span>
+        </template>
+        <div id="target"></div>
+    </body>
+</html>
