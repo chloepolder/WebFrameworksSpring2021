@@ -1,0 +1,173 @@
+<html action="/" method="">
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            table{
+                border-width: medium;
+            }
+        </style>
+    </head>
+    <body>
+        <h3> Available Functionality of this Node API</h3>
+        <div>
+        <table>
+            <tr>
+                <th>
+                    <a href="/Users">Get: /Users</a>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Description: Should return a list of all users and their properties as a JSON array. Passwords should be hidden.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Success: Code 200 OK Success status <br>
+                    Example: [
+                        {
+                            "userId":1,
+                            "firstName":"Jon",
+                            "lastName":"Snow",
+                            "emailAddress":"jsnow@gmail.com",
+                            "password":"hidden"
+                        },
+                        {
+                            "userId":2,
+                            "firstName":"Killua",
+                            "lastName":"Zoldyck",
+                            "emailAddress":"kzoldyk@gmail.com",
+                            "password":"hidden"
+                        },
+                        {
+                            "userId":3,
+                            "firstName":"Paul",
+                            "lastName":"McCartney",
+                            "emailAddress":"pmccartney@gmail.com",
+                            "password":"hidden"
+                        }
+                    ]
+                </td>
+            </tr>
+        </table><br><br>
+        <table>
+            <tr>
+                <th>
+                    <a href="./html/newUser.html">Post: /Users</a>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Description: Should Create a new User record and take in the following properties: First Name, Last Name, and Email & returns the new user.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Success: Code 201 Created Success status <br>
+                    Example: {
+                        "userId": 4,
+                        "firstName": "Maya",
+                        "lastName": "Angelou",
+                        "emailAddress": "mangelou@gmail.com",
+                        "password":"1234567"
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Failure: Code 409 Conflict response status
+                    Example: {message:"Duplicate userID"}
+                </td>
+            </tr>
+        </table><br><br>
+        <table>
+            <tr>
+                <th>
+                    Get: /Users/{userId}
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Description: Should return a specific User by the user ID provided in the URL with all its properties if it exists.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Success: Code 200 OK Success status <br>
+                    Example: {
+                        "userId": 3,
+                        "firstName": "Paul",
+                        "lastName": "McCartney",
+                        "emailAddress": "pmccartney@gmail.com",
+                        "password":"123abc"
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Failure: Code 404 User not Found <br>
+                    Example: {"message": "User with id 8 was not found."}
+                </td>
+            </tr>
+        </table><br><br>
+        <table>
+            <tr>
+                <th>
+                    Patch: /Users/{userId}
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Description: Should allow you to Update any data for an existing User by the user ID provided in the URL, except the ID field & returns the updated user.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Success: Code 200 OK Success status <br>
+                    Example: {
+                        "userId": 4,
+                        "firstName": "Maya2",
+                        "lastName": "Angelou2",
+                        "emailAddress": "mangelou@gmail.com2",
+                        "password":"1234567"
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Failure: Code 404 User not Found <br>
+                    Example: {"message": "User with id 5 was not found."}
+                </td>
+            </tr>
+        </table><br><br>
+        <table>
+            <tr>
+                <th>
+                    Delete: /Users/{userId}
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Description: Should delete a user if it exists by the user ID provided in the URL.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Success: Code 201 Created Success status <br>
+                    Example: {"message": "User with id 4 has been deleted."}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Failure: Code 404 User not Found <br>
+                    Example: {"message": "User with id 5 was not found."}
+                </td>
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>
